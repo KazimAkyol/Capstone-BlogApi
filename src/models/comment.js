@@ -17,6 +17,12 @@ const CommentSchema = new mongoose.Schema(
       ref: "Blog",
       required: true,
     },
+
+    comment: {
+      type: String,
+      trim: true,
+      required: true,
+    },
   },
   {
     collection: "comments",
