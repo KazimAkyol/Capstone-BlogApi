@@ -61,4 +61,37 @@ const UserSchema = new mongoose.Schema(
   }
 );
 
+UserSchema.pre(["save", "updateOne"], function (next) {
+  const data = this?._update ?? this;
+
+  // Email Control:
+  const isEmailValidated = data.email
+    ? /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email)
+    : true;
+
+  if (!isEmailValidated) {
+    next(new Error("Email is not validated."));
+  }
+
+  const isPasswordValidated = data.password
+    ? /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/.test(data.password)
+    : true;
+
+  if (!isPasswordValidated) {
+    next(new Error("Password is not validated."));
+  }
+
+  if (this._update) {
+    // Update
+
+    this._update.password = passwordEncrypt(data.password);
+  } else {
+    // Save
+
+    this.password = passwordEncrypt(data.password);
+  }
+
+  next();
+});
+
 module.exports = mongoose.model("User", UserSchema);
