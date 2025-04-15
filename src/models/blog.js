@@ -24,9 +24,16 @@ const BlogSchema = new mongoose.Schema(
       required: true,
     },
 
+    content: {
+      type: String,
+      trim: true,
+      required: true,
+    },
+
     image: {
       type: String,
       trim: true,
+      required: true,
     },
 
     isPublish: {
@@ -34,9 +41,15 @@ const BlogSchema = new mongoose.Schema(
       default: false,
     },
 
-    likes: {},
+    likes: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
 
-    countOfVisitors: {},
+    countOfVisitors: {
+      type: Number,
+      default: 0,
+    },
   },
   {
     collection: "blogs",

@@ -1,8 +1,8 @@
 {
-  "title": "Capstone Blog API",
+  "title": "Blog API Management",
   "name": "capstone-blogapi",
   "version": "1.0.0",
-  "description": "[Milestone Blog App - Frontend](https://milestone-blogapp-cw.vercel.app/)",
+  "description": "Blog API Management",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -11,7 +11,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "ISC Licence",
   "type": "commonjs",
   "dependencies": {
     "dotenv": "^16.5.0",
