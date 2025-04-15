@@ -23,3 +23,8 @@ router.use("/comment", require("./comment"));
 
 // blog:
 router.use("/blog", require("./blog"));
+
+// document:
+router.use("/documents", require("./document"));
+
+module.exports = router;

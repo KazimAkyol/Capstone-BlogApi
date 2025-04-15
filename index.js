@@ -41,7 +41,7 @@ app.use(express.json());
 // app.use("/upload", express.static("./upload"));
 
 // Check Authentication:
-// app.use(require("./src/middlewares/authentication"));
+app.use(require("./src/middlewares/authentication"));
 
 // Run Logger:
 // app.use(require("./src/middlewares/logger"));
@@ -67,7 +67,7 @@ app.all("/", (req, res) => {
 });
 
 // Routes:
-// app.use(require("./src/routes"));
+app.use(require("./src/routes"));
 
 /* ------------------------------------------------------- */
 

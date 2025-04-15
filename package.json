@@ -1,12 +1,13 @@
 {
+  "title": "Capstone Blog API",
   "name": "capstone-blogapi",
   "version": "1.0.0",
   "description": "[Milestone Blog App - Frontend](https://milestone-blogapp-cw.vercel.app/)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "node swaggerAutogen.js && nodemon index.js",
+    "debug": "DEBUG=* nodemon"
   },
   "keywords": [],
   "author": "",
