@@ -3,12 +3,15 @@
                    CAPSTONE-BLOGAPI
 ------------------------------------------------------- */
 const router = require("express").Router();
-const auth = require("../controllers/auth");
 /* ------------------------------------------------------- */
+const { login, refresh, logout, register } = require("../controllers/auth");
+
 // URL: /auth
 
-router.post("/login", auth.login);
-router.get("/logout", auth.logout);
+router.post("/login", login);
+router.post("/register", register);
+router.post("/refresh", refresh);
+router.get("/logout", logout);
 
 /* ------------------------------------------------------- */
 module.exports = router;

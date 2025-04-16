@@ -67,6 +67,7 @@ module.exports = {
     const accessToken = jwt.sign(accessData, process.env.ACCESS_KEY, {
       expiresIn: "30m",
     });
+
     const refreshToken = jwt.sign(
       { _id: user._id, password: user.password },
       process.env.REFRESH_KEY,
@@ -223,8 +224,9 @@ module.exports = {
             #swagger.description = 'Delete token-key.'
         */
 
-    const auth = req.headers?.authorization || null; // Token ...tokenKey... // Bearer ...accessToken...
-    const tokenKey = auth ? auth.split(" ") : null; // ['Token', '...tokenKey...'] // ['Bearer', '...accessToken...']
+    const auth = req.headers?.authorization || null;
+    
+    const tokenKey = auth ? auth.split(" ") : null;
 
     let message = null,
       result = {};
